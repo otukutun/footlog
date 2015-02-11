@@ -45,6 +45,7 @@ end
 
 
 gem 'devise'
+gem 'omniauth-twitter'
 gem 'mysql2'
 gem 'slim-rails'
 gem 'settingslogic'
