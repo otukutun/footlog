@@ -54,6 +54,7 @@ gem 'redis'
 gem 'carrierwave'
 gem 'versionist'
 gem 'kaminari'
+gem 'bootstrap-sass'
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-doc'
