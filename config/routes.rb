@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
+
+  root 'pages#top'
+
   get 'users/my'
 
   get 'users/index'
 
   devise_for :users, controllers:  { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  devise_scope :user do
-    get 'sign_in', to: 'devise/sessions#new', as: :new_user_session
-    get 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
-  end
+  #devise_scope :user do
+  #  get 'sign_in', to: 'devise/sessions#new', as: :new_user_session
+  #  get 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
+  #end
 
   # devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
