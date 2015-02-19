@@ -1,0 +1,117 @@
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - db/migrate/**
+    - bin/**
+
+# Use UTF-8 as the source file encoding.
+Style/Encoding:
+  Enabled: false
+
+# Limit lines to 80 characters.
+Metrics/LineLength:
+  Enabled: false
+
+# Avoid methods longer than 10 lines of code
+Metrics/MethodLength:
+  Enabled: false
+
+# Favor modifier if/unless usage when you have a single-line body.
+Style/IfUnlessModifier:
+  Enabled: false
+
+# Favor modifier while/until usage when you have a single-line body.
+Style/WhileUntilModifier:
+  Enabled: false
+
+# Preferred collection methods.
+Style/CollectionMethods:
+  Enabled: false
+
+# Don't interpolate global, instance and class variables directly in strings.
+Style/VariableInterpolation:
+  Enabled: false
+
+# Don't use semicolons to terminate expressions.
+Style/Semicolon:
+  AllowAsExpressionSeparator: false
+
+# Use only ascii symbols in comments.
+Style/AsciiComments:
+  Enabled: false
+
+Style/TrailingBlankLines:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/CommentAnnotation:
+  Enabled: false
+
+Style/Blocks:
+  Enabled: false
+
+Style/CaseEquality:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Lint/UselessAccessModifier:
+  Enabled: false
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/IndentHash:
+  Enabled: false
+
+Style/FormatString:
+  Enabled: false
+
+Style/TrivialAccessors:
+  Enabled: false
+
+Style/ColonMethodCall:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Style/AndOr:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/CaseIndentation:
+  IndentWhenRelativeTo: 'case'
+  IndentOneStep: true
+
+Style/Lambda:
+  Enabled: false
+
+Style/MultilineOperationIndentation:
+  Enabled: true
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Style/DotPosition:
+  EnforcedStyle: leading
