@@ -1,18 +1,39 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, class_name: "Admin::AdminUser"
   root 'pages#top'
 
   get 'users/my'
-
   get 'users/index'
 
-  devise_for :users, controllers:  { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: {
+                       omniauth_callbacks: 'users/omniauth_callbacks',
+                       sessions: 'users/sessions',
+                       passwords: 'users/passwords',
+                       confirmations: 'users/confirmations',
+                       registrations: 'users/registrations',
+                       unlocks: 'users/unlocks'
+                   }
   devise_scope :user do
-    get '/sign_in'  => 'devise/sessions#new'
-    post 'sign_in' => 'devise/sessions#create'
-    delete '/sign_out' => 'devise/sessions#new'
-    get '/sign_up' => 'devise/registrations#new'
-    post '/sign_up' => 'devise/registrations#create'
+    get '/sign_in' => 'users/sessions#new'
+    post 'sign_in' => 'users/sessions#create'
+    delete '/sign_out' => 'users/sessions#new'
+    get '/sign_up' => 'users/registrations#new'
+    post '/sign_up' => 'users/registrations#create'
   end
+
+#  constraints subdomain: 'admin' do
+#    namespace 'admin', path: nil do
+#      # root_path ''
+#      devise_for :admin_user, controllers: {
+#                                #omniauth_callbacks: 'admin/omniauth_callbacks',
+#                                sessions: 'admin/sessions',
+#                                passwords: 'admin/passwords',
+#                                confirmations: 'admin/confirmations',
+#                                registrations: 'admin/registrations',
+#                                #unlocks: 'admin/unlocks'
+#                            }
+#    end
+#  end
 
   # devise_scope :user do
   #  get 'sign_in', to: 'devise/sessions#new', as: :new_user_session
