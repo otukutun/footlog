@@ -8,6 +8,12 @@ development:
 
 test:
   <<: *defaults
+  twitter:
+    access_key: ''
+    access_key_secret: ''
 
 production:
   <<: *defaults
+  twitter:
+    access_key: ''
+    access_key_secret: ''
