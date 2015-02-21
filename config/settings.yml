@@ -1,0 +1,13 @@
+defaults: &defaults
+
+development:
+  <<: *defaults
+  twitter:
+    access_key: nOaMeToeAOJ13OcfmIjfJ7Q0E
+    access_key_secret: osW72LtLIB8Lc5G3JPE6XvIAW3APxt4WKIg8rYuH2aDNyEUwGo
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
