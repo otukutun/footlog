@@ -21,20 +21,24 @@ Rails.application.routes.draw do
     post '/sign_up' => 'users/registrations#create'
   end
 
-#  constraints subdomain: 'admin' do
-#    namespace 'admin', path: nil do
-#      # root_path ''
-#      devise_for :admin_user, controllers: {
-#                                #omniauth_callbacks: 'admin/omniauth_callbacks',
-#                                sessions: 'admin/sessions',
-#                                passwords: 'admin/passwords',
-#                                confirmations: 'admin/confirmations',
-#                                registrations: 'admin/registrations',
-#                                #unlocks: 'admin/unlocks'
-#                            }
-#    end
-#  end
+  constraints Subdomain::Admin do
+    namespace :admin, path: Subdomain::Admin.path do
+      # root_path ''
+     #   devise_for :admin_user, controllers: {
+     #                             #omniauth_callbacks: 'admin/omniauth_callbacks',
+     #                             sessions: 'admin/sessions',
+     #                             passwords: 'admin/passwords',
+     #                             confirmations: 'admin/confirmations',
+     #                             registrations: 'admin/registrations',
+     #                             #unlocks: 'admin/unlocks'
+     #                         }
+    end
+  end
 
+  constraints Subdomain::Api do
+    namespace :api, path: Subdomain::Api.path do
+    end
+  end
   # devise_scope :user do
   #  get 'sign_in', to: 'devise/sessions#new', as: :new_user_session
   #  get 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
