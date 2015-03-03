@@ -23,5 +23,10 @@ module Appname
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+#    config.to_prepare do
+#      Admin::SessionsController.layout 'admin/application'
+#      Admin::RegistrationsController.layout 'admin/application'
+#    end
   end
 end
