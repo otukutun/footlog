@@ -54,6 +54,7 @@ gem 'carrierwave'
 gem 'versionist'
 gem 'kaminari'
 gem 'bootstrap-sass'
+gem 'simple_form'
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-doc'
