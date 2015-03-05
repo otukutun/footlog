@@ -2,19 +2,12 @@
   h2
     | Log in
 .col-sm-8.col-sm-offset-2
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .form-group
-      = f.label :email, class: 'col-sm-3 control-label'
-      br
-      = f.email_field :email, autofocus: true, class: 'col-sm-9'
-    .field
-      = f.label :password
-      br
-      = f.password_field :password, autocomplete: "off"
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name), wrapper: :horizontal_form, html: { class: 'form-horizontal' }, wrapper_mappings: {check_boxes: :vertical_radio_and_checkboxes,radio_buttons: :vertical_radio_and_checkboxes,file: :vertical_file_input, boolean: :vertical_boolean}) do |f|
+    = f.error_notification
+    = f.input :email, wrapper: :horizontal_form, autofocus: true, required: true
+    = f.input :password, wrapper: :horizontal_form, autocomplete: 'off', required: true
     - if devise_mapping.rememberable?
-      .field
-        = f.check_box :remember_me
-        = f.label :remember_me
-    .actions
-      = f.submit "Log in"
+      = f.input :remember_me, wrapper: :horizontal_radio_and_checkboxes, as: :boolean, checked_value: true, unchecked_value: false
+    .form-actions.col-sm-offset-3
+      = f.button :submit, 'Login', class: 'btn-warning'
   = render "admin/admin_users/shared/links"
