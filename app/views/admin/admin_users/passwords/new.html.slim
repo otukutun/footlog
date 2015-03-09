@@ -1,11 +1,10 @@
-h2
-  | Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "admin/admin_users/shared/links"
+.page-header
+  h2
+    | Forgot your password?
+.col-sm-8.col-sm-offset-2
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), wrapper: :horizontal_form, html: { method: :post, class: 'form-horizontal' }, wrapper_mappings: {check_boxes: :vertical_radio_and_checkboxes,radio_buttons: :vertical_radio_and_checkboxes,file: :vertical_file_input, boolean: :vertical_boolean}) do |f|
+    = f.error_notification
+    = f.input :email, wrapper: :horizontal_form, autofocus: true, required: true
+    .form-actions.col-sm-offset-3
+      = f.button :submit, 'Send me reset password instructions', class: 'btn-warning'
+  = render 'admin/admin_users/shared/links'
