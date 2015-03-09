@@ -99,4 +99,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  # error
+  match '*path', :controller => 'application', :action => 'render_404', via: '*'
 end
